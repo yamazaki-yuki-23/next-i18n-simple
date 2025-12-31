@@ -8,7 +8,8 @@
     "start": "next start",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "jest"
+    "test": "jest",
+    "knip": "knip"
   },
   "dependencies": {
     "next": "16.1.1",
@@ -21,7 +22,7 @@
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^30.0.0",
-    "@types/node": "^20",
+    "@types/node": "^25.0.3",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9.39.2",
@@ -31,8 +32,9 @@
     "eslint-plugin-import": "^2.32.0",
     "jest": "^30.1.3",
     "jest-environment-jsdom": "^30.1.2",
+    "knip": "^5.78.0",
     "prettier": "3.7.4",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   }
 }
