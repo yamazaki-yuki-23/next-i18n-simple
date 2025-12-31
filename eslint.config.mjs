@@ -11,6 +11,16 @@ const eslintConfig = defineConfig([
     plugins: {
       import: importPlugin
     },
+    settings: {
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json'
+        },
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
+        }
+      }
+    },
     rules: {
       'import/order': [
         'error',
