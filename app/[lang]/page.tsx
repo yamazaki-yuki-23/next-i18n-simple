@@ -2,7 +2,11 @@ import { notFound } from 'next/navigation'
 
 import { getDictionary, hasLocale } from './dictionaries'
 
-export default async function Home({ params }: PageProps<'/[lang]'>) {
+type Props = {
+  params: Promise<{ lang: string }>
+}
+
+export const Home = async ({ params }: Props) => {
   const { lang } = await params
 
   if (!hasLocale(lang)) notFound()
@@ -23,3 +27,5 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
     </div>
   )
 }
+
+export default Home

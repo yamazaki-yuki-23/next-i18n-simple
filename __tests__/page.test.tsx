@@ -4,14 +4,12 @@ import Home from '@/app/[lang]/page'
 
 type PageProps = {
   params: Promise<{ lang: string }>
-  searchParams: Promise<Record<string, string | string[] | undefined>>
 }
 
 describe('Home', () => {
   it('renders the title and locale', async () => {
     const props: PageProps = {
-      params: Promise.resolve({ lang: 'en' }),
-      searchParams: Promise.resolve({})
+      params: Promise.resolve({ lang: 'en' })
     }
 
     const ui = await Home(props)
