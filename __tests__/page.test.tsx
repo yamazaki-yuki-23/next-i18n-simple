@@ -1,11 +1,18 @@
 import { render, screen } from '@testing-library/react'
 
-import Home from '@/app/page'
+import Home from '@/app/[lang]/page'
 
 describe('Home', () => {
-  it('renders the getting started message', () => {
-    render(<Home />)
+  it('renders the title and locale', async () => {
+    const props: PageProps<'/[lang]'> = {
+      params: Promise.resolve({ lang: 'en' }),
+      searchParams: Promise.resolve({})
+    }
 
-    expect(screen.getByText('To get started, edit the page.tsx file.')).toBeInTheDocument()
+    const ui = await Home(props)
+    render(ui)
+
+    expect(screen.getByText('Next I18n Simple')).toBeInTheDocument()
+    expect(screen.getByText('locale: en')).toBeInTheDocument()
   })
 })
