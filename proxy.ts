@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server'
 const defaultLocale = 'ja'
 const locales = ['en-US', 'nl-NL', 'nl', 'ja']
 
-function getLocale(request: NextRequest) {
+const getLocale = (request: NextRequest): string => {
   const acceptLanguage = request.headers.get('Accept-Language')
   if (!acceptLanguage) return defaultLocale
 
@@ -23,10 +23,10 @@ function getLocale(request: NextRequest) {
     }
   }
 
-  return 'en-US'
+  return defaultLocale
 }
 
-export function proxy(request: NextRequest) {
+export const proxy = (request: NextRequest): NextResponse | void => {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl
   const pathnameHasLocale = locales.some(
