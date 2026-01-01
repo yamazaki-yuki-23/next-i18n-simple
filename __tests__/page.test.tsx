@@ -2,9 +2,14 @@ import { render, screen } from '@testing-library/react'
 
 import Home from '@/app/[lang]/page'
 
+type PageProps = {
+  params: Promise<{ lang: string }>
+  searchParams: Promise<Record<string, string | string[] | undefined>>
+}
+
 describe('Home', () => {
   it('renders the title and locale', async () => {
-    const props: PageProps<'/[lang]'> = {
+    const props: PageProps = {
       params: Promise.resolve({ lang: 'en' }),
       searchParams: Promise.resolve({})
     }
