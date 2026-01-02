@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation'
 
-import Counter from '@/app/components/Counter'
-
-import { getDictionary, getDictionaryLocale } from './dictionaries'
+import Counter from '@/components/Counter'
+import { getDictionary, getDictionaryLocale } from '@/lib/get-dictionary'
 
 type Props = {
   params: Promise<{ lang: string }>
