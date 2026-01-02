@@ -1,5 +1,11 @@
 {
   "home": {
     "message": "Next.jsで多言語の体験をつくろう。"
+  },
+  "counter": {
+    "title": "現在のカウント",
+    "increment": "カウントを増やす",
+    "decrement": "カウントを減らす",
+    "reset": "カウントをリセット"
   }
 }

@@ -1,5 +1,11 @@
 {
   "home": {
     "message": "Build global experiences with Next.js."
+  },
+  "counter": {
+    "title": "Current Count",
+    "increment": "Increment Count",
+    "decrement": "Decrement Count",
+    "reset": "Reset Count"
   }
 }

@@ -1,5 +1,11 @@
 {
   "home": {
     "message": "Bouw wereldwijde ervaringen met Next.js."
+  },
+  "counter": {
+    "title": "Huidige Aantal",
+    "increment": "Aantal Verhogen",
+    "decrement": "Aantal Verlagen",
+    "reset": "Aantal Resetten"
   }
 }
