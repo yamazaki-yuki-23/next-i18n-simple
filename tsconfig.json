@@ -21,6 +21,7 @@
     "paths": {
       "@/app/*": ["./app/*"],
       "@/components/*": ["./app/components/*"],
+      "@/constants/*": ["./app/constants/*"],
       "@/dictionaries/*": ["./dictionaries/*"],
       "@/lib/*": ["./app/lib/*"]
     }

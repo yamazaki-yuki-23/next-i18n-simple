@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 
 import Counter from '@/components/Counter'
+import LocaleSwitcher from '@/components/LocaleSwitcher'
 import { getDictionary, getDictionaryLocale } from '@/lib/get-dictionary'
 
 type Props = {
@@ -22,6 +23,7 @@ export const Home = async ({ params }: Props) => {
           Next I18n Simple
         </h1>
         <p className="text-lg leading-8 text-zinc-600 dark:text-zinc-400">locale: {lang}</p>
+        <LocaleSwitcher />
         <p className="text-base leading-7 text-zinc-800 dark:text-zinc-200">{dict.home.message}</p>
         <Counter dict={dict.counter} />
       </main>
