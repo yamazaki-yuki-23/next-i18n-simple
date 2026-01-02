@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import Counter from '../components/Counter'
+import Counter from '@/app/components/Counter'
 
 import { getDictionary, getDictionaryLocale } from './dictionaries'
 

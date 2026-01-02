@@ -3,13 +3,15 @@ import nextVitals from 'eslint-config-next/core-web-vitals'
 import nextTs from 'eslint-config-next/typescript'
 import prettier from 'eslint-config-prettier/flat'
 import importPlugin from 'eslint-plugin-import'
+import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths'
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   {
     plugins: {
-      import: importPlugin
+      import: importPlugin,
+      'no-relative-import-paths': noRelativeImportPaths
     },
     settings: {
       'import/resolver': {
@@ -28,6 +30,14 @@ const eslintConfig = defineConfig([
           groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'type'],
           'newlines-between': 'always',
           alphabetize: { order: 'asc', caseInsensitive: true }
+        }
+      ],
+      'no-relative-import-paths/no-relative-import-paths': [
+        'error',
+        {
+          allowSameFolder: true,
+          rootDir: 'app',
+          prefix: '@/app'
         }
       ]
     }
