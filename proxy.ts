@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 const defaultLocale = 'ja'
-const locales = ['en-US', 'nl-NL', 'nl', 'ja']
+const locales = ['en-US', 'nl-NL', 'nl', 'ja', 'en']
 
 const getLocale = (request: NextRequest): string => {
   const acceptLanguage = request.headers.get('Accept-Language')
