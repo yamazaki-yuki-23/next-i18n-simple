@@ -1,5 +1,5 @@
 {
-  "products": {
-    "cart": "カートに追加"
+  "home": {
+    "message": "Next.jsで多言語の体験をつくろう。"
   }
 }

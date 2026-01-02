@@ -1,5 +1,5 @@
 {
-  "products": {
-    "cart": "Add to Cart"
+  "home": {
+    "message": "Build global experiences with Next.js."
   }
 }

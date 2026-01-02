@@ -1,5 +1,5 @@
 {
-  "products": {
-    "cart": "Toevoegen aan winkelwagen"
+  "home": {
+    "message": "Bouw wereldwijde ervaringen met Next.js."
   }
 }
