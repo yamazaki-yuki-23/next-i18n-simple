@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { getDictionary } from '@/lib/get-dictionary'
+import type { getDictionary } from '@/lib/get-dictionary'
 
 type Props = {
   dict: Awaited<ReturnType<typeof getDictionary>>['counter']

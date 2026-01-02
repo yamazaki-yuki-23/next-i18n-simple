@@ -3,7 +3,9 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { locales, type Locale } from '@/constants/i18n'
+import { locales } from '@/constants/i18n'
+
+import type { Locale } from '@/constants/i18n'
 
 const LocaleSwitcher = () => {
   const pathname = usePathname()
