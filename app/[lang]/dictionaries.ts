@@ -6,8 +6,17 @@ const dictionaries = {
   ja: () => import('@/dictionaries/ja.json').then((module) => module.default)
 }
 
-export type Locale = keyof typeof dictionaries
+export type DictionaryLocale = keyof typeof dictionaries
 
-export const hasLocale = (locale: string): locale is Locale => locale in dictionaries
+const isDictionaryLocale = (locale: string): locale is DictionaryLocale => locale in dictionaries
 
-export const getDictionary = async (locale: Locale) => dictionaries[locale]()
+export const getDictionaryLocale = (locale: string): DictionaryLocale | null => {
+  if (isDictionaryLocale(locale)) return locale
+
+  const languageOnly = locale.split('-')[0]
+  if (isDictionaryLocale(languageOnly)) return languageOnly
+
+  return null
+}
+
+export const getDictionary = async (locale: DictionaryLocale) => dictionaries[locale]()

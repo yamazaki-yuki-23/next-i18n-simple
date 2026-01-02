@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import { getDictionary, hasLocale } from './dictionaries'
+import { getDictionary, getDictionaryLocale } from './dictionaries'
 
 type Props = {
   params: Promise<{ lang: string }>
@@ -9,9 +9,10 @@ type Props = {
 export const Home = async ({ params }: Props) => {
   const { lang } = await params
 
-  if (!hasLocale(lang)) notFound()
+  const dictionaryLocale = getDictionaryLocale(lang)
+  if (!dictionaryLocale) notFound()
 
-  const dict = await getDictionary(lang)
+  const dict = await getDictionary(dictionaryLocale)
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
