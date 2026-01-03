@@ -1,6 +1,7 @@
 {
   "home": {
-    "message": "Next.jsで多言語の体験をつくろう。"
+    "message": "Next.jsで多言語の体験をつくろう。",
+    "richMessage": "<b>Next.js</b>で<i>多言語</i>の体験をつくろう。"
   },
   "counter": {
     "title": "現在のカウント",
