@@ -1,6 +1,7 @@
 export type Dictionary = {
   home: {
     message: string
+    richMessage: string
   }
   counter: {
     title: string
