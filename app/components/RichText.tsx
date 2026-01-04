@@ -28,9 +28,52 @@ const defaultComponents: Required<Compoents> = {
  * @return {ReactNode[] | string} ReactNode配列または文字列
  */
 const parseRichText = (text: string, components: Required<Compoents>) => {
-  // TODO: タグ解析ロジックを実装する
-  // 現時点では、単純にテキスト全体を返すのみ
-  return [text]
+  const result: ReactNode[] = []
+  let remaingText = text
+
+  while (remaingText.length > 0) {
+    // 次タグの開始位置を探す
+    const openTagMatch = remaingText.match(/<(b|i)>/)
+    if (!openTagMatch || openTagMatch.index === undefined) {
+      // タグが見つからなかった場合、残りのテキストをそのまま追加して終了
+      result.push(remaingText)
+      break
+    }
+
+    const tag = openTagMatch[1] as Tag
+    const openTagIndex = openTagMatch.index
+
+    // 開始タグの前のテキストを追加
+    if (openTagIndex > 0) {
+      result.push(remaingText.slice(0, openTagIndex))
+    }
+
+    const afterOpen = remaingText.slice(openTagIndex + openTagMatch[0].length)
+    const closeTag = `</${tag}>`
+    const closeTagIndex = afterOpen.indexOf(closeTag)
+
+    if (closeTagIndex === -1) {
+      // 対応する閉じタグが見つからなかった場合、開始タグを無視してテキストとして追加
+      result.push(remaingText)
+      break
+    }
+
+    const innerText = afterOpen.slice(0, closeTagIndex)
+    const afterClose = afterOpen.slice(closeTagIndex + closeTag.length)
+
+    const component = components[tag]
+    if (component) {
+      result.push(component(innerText))
+    } else {
+      // コンポーネントが見つからなかった場合、タグを無視してテキストとして追加
+      result.push(innerText)
+    }
+
+    // 残りのテキストを更新
+    remaingText = afterClose
+  }
+
+  return result
 }
 
 /**
