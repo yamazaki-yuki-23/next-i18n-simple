@@ -59,10 +59,12 @@ const parseRichText = (text: string, components: Components): ReactNode[] => {
       if (stack.length === 1) return [text]
       const frame = stack.pop()
       if (!frame || frame.tag !== tagName) return [text]
-      const rendered = components[tagName](
-        frame.children.length === 1 ? frame.children[0] : frame.children,
-        frame.attrs
-      )
+      const normalized = frame.children.map((node, index) => (
+        <Fragment key={index}>{node}</Fragment>
+      ))
+      const chunkNode = normalized.length === 1 ? normalized[0] : <Fragment>{normalized}</Fragment>
+
+      const rendered = components[tagName](chunkNode, frame.attrs)
       stack[stack.length - 1].children.push(rendered)
     }
     lastIndex = match.index + matchedTag.length
