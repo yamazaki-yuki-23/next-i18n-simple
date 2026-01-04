@@ -29,10 +29,15 @@ export const Home = async ({ params }: Props) => {
           <RichText
             components={{
               b: (chunks) => <b className="font-semibold">{chunks}</b>,
-              i: (chunks) => <i className="italic">{chunks}</i>
+              i: (chunks) => <i className="italic">{chunks}</i>,
+              a: (chunks, attrs) => (
+                <a className="text-blue-600 underline" {...attrs}>
+                  {chunks}
+                </a>
+              )
             }}
           >
-            {dict.home.richMessage}
+            {dict.home.richMessageLink}
           </RichText>
         </p>
         <Counter dict={dict.counter} />

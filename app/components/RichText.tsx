@@ -2,12 +2,21 @@ import { Fragment } from 'react'
 
 import type { ReactNode } from 'react'
 
-type TagRenderer = (chunks: ReactNode) => ReactNode
+type TagRenderer = (chunks: ReactNode, attrs: Record<string, string>) => ReactNode
 type Components = Record<string, TagRenderer>
 
 type Props = {
   components: Components
   children: string
+}
+
+const parseAttributes = (rawAttrs: string): Record<string, string> => {
+  const attrs: Record<string, string> = {}
+  const pattern = /([A-Za-z_:][\w:.-]*)="([^"]*)"/g
+  for (const match of rawAttrs.matchAll(pattern)) {
+    attrs[match[1]] = match[2]
+  }
+  return attrs
 }
 
 /**
@@ -20,12 +29,15 @@ type Props = {
  */
 const parseRichText = (text: string, components: Components): ReactNode[] => {
   const tagPattern = /<\/?([a-zA-Z]+)(\s[^>]*)?>/g
-  const stack: Array<{ tag: string | null; children: ReactNode[] }> = [{ tag: null, children: [] }]
+  const stack: Array<{ tag: string | null; attrs: Record<string, string>; children: ReactNode[] }> =
+    [{ tag: null, attrs: {}, children: [] }]
   let lastIndex = 0
 
   for (const match of text.matchAll(tagPattern)) {
     const matchedTag = match[0]
     const tagName = match[1]
+    const rawAttrs = match[2] ?? ''
+    const attrs = parseAttributes(rawAttrs)
     const isClosingTag = matchedTag.startsWith('</')
 
     if (match.index === undefined) return [text]
@@ -42,13 +54,14 @@ const parseRichText = (text: string, components: Components): ReactNode[] => {
     }
 
     if (!isClosingTag) {
-      stack.push({ tag: tagName, children: [] })
+      stack.push({ tag: tagName, attrs, children: [] })
     } else {
       if (stack.length === 1) return [text]
       const frame = stack.pop()
       if (!frame || frame.tag !== tagName) return [text]
       const rendered = components[tagName](
-        frame.children.length === 1 ? frame.children[0] : frame.children
+        frame.children.length === 1 ? frame.children[0] : frame.children,
+        frame.attrs
       )
       stack[stack.length - 1].children.push(rendered)
     }
