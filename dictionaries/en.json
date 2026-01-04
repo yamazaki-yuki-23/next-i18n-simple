@@ -1,7 +1,9 @@
 {
   "home": {
     "message": "Build global experiences with Next.js.",
-    "richMessage": "Build <i>global</i> experiences with <b>Next.js</b>."
+    "richMessage": "Build <i>global</i> experiences with <b>Next.js</b>.",
+    "richMessageNested": "Build <b>global <i>experiences</i></b> with Next.js.",
+    "richMessageLink": "Build global experiences with <a href=\"https://nextjs.org\">Next.js</a>."
   },
   "counter": {
     "title": "Current Count",

@@ -1,7 +1,9 @@
 {
   "home": {
     "message": "Bouw wereldwijde ervaringen met Next.js.",
-    "richMessage": "Bouw <i>wereldwijde</i> ervaringen met <b>Next.js</b>."
+    "richMessage": "Bouw <i>wereldwijde</i> ervaringen met <b>Next.js</b>.",
+    "richMessageNested": "Bouw <b>wereldwijde <i>ervaringen</i></b> met Next.js.",
+    "richMessageLink": "Bouw ervaringen met <a href=\"https://nextjs.org\">Next.js</a>."
   },
   "counter": {
     "title": "Huidige Aantal",
