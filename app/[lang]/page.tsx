@@ -26,7 +26,14 @@ export const Home = async ({ params }: Props) => {
         <p className="text-lg leading-8 text-zinc-600 dark:text-zinc-400">locale: {lang}</p>
         <LocaleSwitcher />
         <p className="text-base leading-7 text-zinc-800 dark:text-zinc-200">
-          <RichText text={dict.home.richMessage} />
+          <RichText
+            components={{
+              b: (chunks) => <b className="font-semibold">{chunks}</b>,
+              i: (chunks) => <i className="italic">{chunks}</i>
+            }}
+          >
+            {dict.home.richMessage}
+          </RichText>
         </p>
         <Counter dict={dict.counter} />
       </main>
