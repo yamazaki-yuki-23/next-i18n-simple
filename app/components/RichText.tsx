@@ -1,3 +1,5 @@
+import React from 'react'
+
 import type { ReactNode } from 'react'
 
 type Tag = 'b' | 'i' // 簡易易な例として2つのタグのみ定義
@@ -91,7 +93,13 @@ const RichText = ({ text, components }: Props) => {
   const mergedComponents = { ...defaultComponents, ...components }
   const nodes = parseRichText(text, mergedComponents)
 
-  return <>{nodes}</>
+  return (
+    <>
+      {nodes.map((node, index) => (
+        <React.Fragment key={index}>{node}</React.Fragment>
+      ))}
+    </>
+  )
 }
 
 export default RichText
