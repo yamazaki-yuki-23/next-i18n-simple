@@ -10,6 +10,17 @@ type Props = {
   children: string
 }
 
+type StackFrame = {
+  tag: string | null
+  attrs: Record<string, string>
+  children: ReactNode[]
+}
+
+/**
+ * タグ内の属性文字列を「key=value」形式のオブジェクトに変換する。
+ * @param {string} rawAttrs タグに含まれる属性文字列
+ * @returns {Record<string, string>} パース済み属性
+ */
 const parseAttributes = (rawAttrs: string): Record<string, string> => {
   const attrs: Record<string, string> = {}
   const pattern = /([A-Za-z_:][\w:.-]*)="([^"]*)"/g
@@ -17,6 +28,18 @@ const parseAttributes = (rawAttrs: string): Record<string, string> => {
     attrs[match[1]] = match[2]
   }
   return attrs
+}
+
+/**
+ * 配列の子要素にキーを付与し、単一のReactNodeに正規化する。
+ * @param {ReactNode[]} children 変換対象の子要素
+ * @returns {ReactNode} 正規化済みの子要素
+ */
+const normalizeChildren = (children: ReactNode[]): ReactNode => {
+  const keyedChildren = children.map((node, index) => (
+    <Fragment key={index}>{node}</Fragment>
+  ))
+  return keyedChildren.length === 1 ? keyedChildren[0] : <Fragment>{keyedChildren}</Fragment>
 }
 
 /**
@@ -29,8 +52,7 @@ const parseAttributes = (rawAttrs: string): Record<string, string> => {
  */
 const parseRichText = (text: string, components: Components): ReactNode[] => {
   const tagPattern = /<\/?([a-zA-Z]+)(\s[^>]*)?>/g
-  const stack: Array<{ tag: string | null; attrs: Record<string, string>; children: ReactNode[] }> =
-    [{ tag: null, attrs: {}, children: [] }]
+  const stack: StackFrame[] = [{ tag: null, attrs: {}, children: [] }]
   let lastIndex = 0
 
   for (const match of text.matchAll(tagPattern)) {
@@ -59,12 +81,7 @@ const parseRichText = (text: string, components: Components): ReactNode[] => {
       if (stack.length === 1) return [text]
       const frame = stack.pop()
       if (!frame || frame.tag !== tagName) return [text]
-      const normalized = frame.children.map((node, index) => (
-        <Fragment key={index}>{node}</Fragment>
-      ))
-      const chunkNode = normalized.length === 1 ? normalized[0] : <Fragment>{normalized}</Fragment>
-
-      const rendered = components[tagName](chunkNode, frame.attrs)
+      const rendered = components[tagName](normalizeChildren(frame.children), frame.attrs)
       stack[stack.length - 1].children.push(rendered)
     }
     lastIndex = match.index + matchedTag.length
