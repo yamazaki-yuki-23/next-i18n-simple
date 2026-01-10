@@ -6,8 +6,8 @@ type PageProps = {
   params: Promise<{ lang: string }>
 }
 
-describe('Home', () => {
-  it('renders the title and locale', async () => {
+describe('ページ', () => {
+  it('タイトルとロケールを表示する', async () => {
     const props: PageProps = {
       params: Promise.resolve({ lang: 'en' })
     }
