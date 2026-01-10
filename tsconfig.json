@@ -24,7 +24,8 @@
       "@/constants/*": ["./app/constants/*"],
       "@/dictionaries/*": ["./dictionaries/*"],
       "@/lib/*": ["./app/lib/*"]
-    }
+    },
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
   "include": [
     "next-env.d.ts",
