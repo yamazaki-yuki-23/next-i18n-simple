@@ -17,5 +17,9 @@ describe('Home', () => {
 
     expect(screen.getByText('Next I18n Simple')).toBeInTheDocument()
     expect(screen.getByText('locale: en')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Next.js' })).toHaveAttribute(
+      'href',
+      'https://nextjs.org'
+    )
   })
 })
