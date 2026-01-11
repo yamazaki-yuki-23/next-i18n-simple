@@ -2,12 +2,11 @@ import { notFound } from 'next/navigation'
 
 import Counter from '@/components/Counter'
 import LocaleSwitcher from '@/components/LocaleSwitcher'
+import NumberFormat from '@/components/NumberFormat'
 import RichText from '@/components/RichText'
 import { getDictionary, getDictionaryLocale } from '@/lib/get-dictionary'
 
 import type { Locale } from '@/constants/i18n'
-
-import NumberFormat from '@/components/NumberFormat'
 
 type Props = {
   params: Promise<{ lang: string }>
