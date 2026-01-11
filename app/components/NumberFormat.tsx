@@ -42,6 +42,29 @@ const resolveCurrency = (token: string, currency?: string): string => {
     return code
   }
 
+  throw new Error(`Unsupported currency format: ${token}`)
+}
+
+/**
+ * number の第3引数から Intl.NumberFormatOptions を組み立てる。
+ * @param {string} token number の第3引数
+ * @param {string} [currency] 通貨コード
+ * @returns {Intl.NumberFormatOptions} フォーマットオプション
+ */
+const resolveNumberOptions = (token: string, currency?: string): Intl.NumberFormatOptions => {
+  if (token === 'percent') {
+    return { style: 'percent' }
+  }
+
+  if (token === 'currency' || token.startsWith('::currency/')) {
+    const code = resolveCurrency(token, currency)
+    return { style: 'currency', currency: code }
+  }
+
+  if (token === '::.##') {
+    return { maximumFractionDigits: 2 }
+  }
+
   throw new Error(`Unsupported number format: ${token}`)
 }
 
@@ -88,8 +111,8 @@ const parseNumberMessage = (
     if (parts.length === 2) {
       formatted = formatNumber(value, locale)
     } else if (parts.length === 3) {
-      const code = resolveCurrency(parts[2], currency)
-      formatted = formatNumber(value, locale, { style: 'currency', currency: code })
+      const options = resolveNumberOptions(parts[2], currency)
+      formatted = formatNumber(value, locale, options)
     } else {
       throw new Error(`Unsupported number format for "${key}".`)
     }

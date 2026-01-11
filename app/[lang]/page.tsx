@@ -58,6 +58,23 @@ export const Home = async ({ params }: Props) => {
             {dict.home.priceMessage}
           </NumberFormat>
         </p>
+        <div className="flex w-full flex-col gap-2 text-base leading-7 text-zinc-800 dark:text-zinc-200">
+          <p>
+            <NumberFormat values={{ value: 1234.56 }} locale={dictionaryLocale}>
+              {dict.home.numberBasic}
+            </NumberFormat>
+          </p>
+          <p>
+            <NumberFormat values={{ value: 0.42 }} locale={dictionaryLocale}>
+              {dict.home.numberPercentage}
+            </NumberFormat>
+          </p>
+          <p>
+            <NumberFormat values={{ value: 1234.567 }} locale={dictionaryLocale}>
+              {dict.home.numberCustom}
+            </NumberFormat>
+          </p>
+        </div>
         <Counter dict={dict.counter} />
       </main>
     </div>
