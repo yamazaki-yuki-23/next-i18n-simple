@@ -3,7 +3,11 @@
     "message": "Next.jsで多言語の体験をつくろう。",
     "richMessage": "<b>Next.js</b>で<i>多言語</i>の体験をつくろう。",
     "richMessageNested": "<b>Next.jsで<i>多言語</i>の体験</b>をつくろう。",
-    "richMessageLink": "公式サイトは<a href=\"https://nextjs.org\">こちら</a>。"
+    "richMessageLink": "公式サイトは<a href=\"https://nextjs.org\">こちら</a>。",
+    "priceMessage": "合計: {price, number, currency}",
+    "numberBasic": "基本のフォーマット: {value, number}",
+    "numberPercentage": "パーセンテージ表示: {value, number, percent}",
+    "numberCustom": "小数点以下2桁まで: {value, number, ::.##}"
   },
   "counter": {
     "title": "現在のカウント",

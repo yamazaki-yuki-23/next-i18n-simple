@@ -3,7 +3,11 @@
     "message": "Build global experiences with Next.js.",
     "richMessage": "Build <i>global</i> experiences with <b>Next.js</b>.",
     "richMessageNested": "Build <b>global <i>experiences</i></b> with Next.js.",
-    "richMessageLink": "Build global experiences with <a href=\"https://nextjs.org\">Next.js</a>."
+    "richMessageLink": "Build global experiences with <a href=\"https://nextjs.org\">Next.js</a>.",
+    "priceMessage": "Total: {price, number, currency}",
+    "numberBasic": "Basic formatting: {value, number}",
+    "numberPercentage": "Displayed as a percentage: {value, number, percent}",
+    "numberCustom": "At most 2 fraction digits: {value, number, ::.##}"
   },
   "counter": {
     "title": "Current Count",
