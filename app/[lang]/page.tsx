@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import Counter from '@/components/Counter'
@@ -74,6 +75,12 @@ export const Home = async ({ params }: Props) => {
             </NumberFormat>
           </p>
         </div>
+        <Link
+          className="text-base font-semibold text-blue-600 underline decoration-2 underline-offset-4"
+          href={`/intl/${lang}`}
+        >
+          next-intl のページへ
+        </Link>
         <Counter dict={dict.counter} />
       </main>
     </div>

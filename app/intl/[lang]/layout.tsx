@@ -1,5 +1,4 @@
 import { Geist, Geist_Mono } from 'next/font/google'
-import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 
 import type { Metadata } from 'next'
