@@ -29,6 +29,8 @@ const getLocale = (request: NextRequest): string => {
 export const proxy = (request: NextRequest): NextResponse | void => {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl
+  if (pathname === '/intl' || pathname.startsWith('/intl/')) return
+
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )

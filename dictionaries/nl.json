@@ -14,5 +14,11 @@
     "increment": "Aantal Verhogen",
     "decrement": "Aantal Verlagen",
     "reset": "Aantal Resetten"
+  },
+  "intlPage": {
+    "title": "next-intl Demopagina",
+    "subtitle": "Huidige locale: {locale}",
+    "description": "Deze pagina gebruikt next-intl in plaats van de eigen helperfuncties.",
+    "backLink": "Terug naar de aangepaste i18n-pagina"
   }
 }
