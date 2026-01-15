@@ -6,5 +6,18 @@ const nextConfig: NextConfig = {
   /* config options here */
 }
 
-const withNextIntl = createNextIntlPlugin('./i18n.ts')
+const withNextIntl = createNextIntlPlugin({
+  requestConfig: './i18n.ts',
+  experimental: {
+    srcPath: 'app',
+    messages: {
+      path: 'extracted-messages',
+      format: 'json',
+      locales: ['en', 'ja', 'nl']
+    },
+    extract: {
+      sourceLocale: 'ja'
+    }
+  }
+})
 export default withNextIntl(nextConfig)
