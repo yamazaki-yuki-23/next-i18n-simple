@@ -36,9 +36,7 @@ const parseAttributes = (rawAttrs: string): Record<string, string> => {
  * @returns {ReactNode} 正規化済みの子要素
  */
 const normalizeChildren = (children: ReactNode[]): ReactNode => {
-  const keyedChildren = children.map((node, index) => (
-    <Fragment key={index}>{node}</Fragment>
-  ))
+  const keyedChildren = children.map((node, index) => <Fragment key={index}>{node}</Fragment>)
   return keyedChildren.length === 1 ? keyedChildren[0] : <Fragment>{keyedChildren}</Fragment>
 }
 

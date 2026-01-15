@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 
+import SampleTranslation from '@/components/SampleTranslation'
+
 export default function IntlHome() {
   const t = useTranslations('intlPage')
   const locale = useLocale()
@@ -17,6 +19,7 @@ export default function IntlHome() {
           {t('subtitle', { locale })}
         </p>
         <p className="text-base leading-7 text-zinc-800 dark:text-zinc-200">{t('description')}</p>
+        <SampleTranslation />
         <Link
           className="text-base font-semibold text-blue-600 underline decoration-2 underline-offset-4"
           href={`/${locale}`}

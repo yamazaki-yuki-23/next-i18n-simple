@@ -1,5 +1,5 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "ignoreDependencies": ["eslint-import-resolver-typescript"],
-  "ignore": ["postcss.config.mjs"]
+  "ignore": ["postcss.config.mjs", "i18n.ts"]
 }
