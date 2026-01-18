@@ -1,3 +1,8 @@
 {
-  "VgH3tb": "Look ma, no keys!"
+  "uNYdCt": "こんにちは！",
+  "W291t7": "こんにちは、{name}さん！",
+  "A/mcIp": "{count, plural, =0 {フォロワーはまだいません} =1 {フォロワーが1人います} other {フォロワーが#人います}}。",
+  "cUWR7J": "{year, selectordinal, one {#回目} two {#回目} few {#回目} other {#回目}}のお誕生日です！",
+  "S5c6DW": "{gender, select, female {彼女は} male {彼は} other {その人は}}オンラインです。",
+  "M9v79e": "<link>ガイドライン</link>をご確認ください。"
 }
