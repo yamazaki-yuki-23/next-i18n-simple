@@ -1,5 +1,9 @@
 import { Geist, Geist_Mono } from 'next/font/google'
+import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
+import { setRequestLocale } from 'next-intl/server'
+
+import { getDictionary, getDictionaryLocale } from '@/lib/get-dictionary'
 
 import type { Metadata } from 'next'
 import './globals.css'
@@ -27,11 +31,18 @@ export default async function IntlLayout({
   children: React.ReactNode
 }>) {
   const { lang } = await params
+  const locale = getDictionaryLocale(lang)
+  if (!locale) notFound()
+
+  setRequestLocale(locale)
+  const messages = await getDictionary(locale)
 
   return (
-    <html lang={lang}>
+    <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   )
