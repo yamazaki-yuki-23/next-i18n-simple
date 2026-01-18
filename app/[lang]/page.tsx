@@ -77,7 +77,7 @@ export const Home = async ({ params }: Props) => {
         </div>
         <Link
           className="text-base font-semibold text-blue-600 underline decoration-2 underline-offset-4"
-          href={`/intl/${lang}`}
+          href={`/${lang}/intl`}
         >
           next-intl のページへ
         </Link>

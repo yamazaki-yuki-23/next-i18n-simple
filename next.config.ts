@@ -9,9 +9,9 @@ const nextConfig: NextConfig = {
 const withNextIntl = createNextIntlPlugin({
   requestConfig: './i18n.ts',
   experimental: {
-    srcPath: 'app',
+    srcPath: './app',
     messages: {
-      path: 'extracted-messages',
+      path: './extracted-messages',
       format: 'json',
       locales: ['en', 'ja', 'nl']
     },

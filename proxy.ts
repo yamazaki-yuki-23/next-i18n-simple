@@ -1,41 +1,51 @@
 import { NextResponse } from 'next/server'
 
+import { locales } from '@/constants/i18n'
+
+import type { Locale } from '@/constants/i18n'
 import type { NextRequest } from 'next/server'
 
-const defaultLocale = 'ja'
-const locales = ['en-US', 'nl-NL', 'nl', 'ja', 'en']
+const defaultLocale: Locale = 'ja'
 
-const getLocale = (request: NextRequest): string => {
+const resolveLocale = (value?: string): Locale | null => {
+  if (!value) return null
+  if (locales.includes(value as Locale)) return value as Locale
+
+  const languageOnly = value.split('-')[0]
+  if (locales.includes(languageOnly as Locale)) return languageOnly as Locale
+
+  return null
+}
+
+const getLocale = (request: NextRequest): Locale => {
   const acceptLanguage = request.headers.get('Accept-Language')
   if (!acceptLanguage) return defaultLocale
 
   const acceptedLocales = acceptLanguage.split(',').map((part) => part.split(';')[0].trim())
 
   for (const locale of acceptedLocales) {
-    if (locales.includes(locale)) {
-      return locale
-    }
-    // Check for language-only match (e.g., "nl" matches "nl-NL")
-    const languageOnly = locale.split('-')[0]
-    const matchedLocale = locales.find((loc) => loc.startsWith(languageOnly))
-    if (matchedLocale) {
-      return matchedLocale
-    }
+    const resolved = resolveLocale(locale)
+    if (resolved) return resolved
   }
 
   return defaultLocale
 }
 
 export const proxy = (request: NextRequest): NextResponse | void => {
-  // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl
-  if (pathname === '/intl' || pathname.startsWith('/intl/')) return
+  const segments = pathname.split('/')
+  const localeFromPath = resolveLocale(segments[1])
 
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
+  if (localeFromPath) {
+    const requestHeaders = new Headers(request.headers)
+    requestHeaders.set('x-next-intl-locale', localeFromPath)
 
-  if (pathnameHasLocale) return
+    return NextResponse.next({
+      request: {
+        headers: requestHeaders
+      }
+    })
+  }
 
   // Redirect if there is no locale
   const locale = getLocale(request)

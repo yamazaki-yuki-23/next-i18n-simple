@@ -1,7 +1,10 @@
+import './globals.css'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { notFound } from 'next/navigation'
+
+import { getDictionaryLocale } from '@/app/lib/get-dictionary'
 
 import type { Metadata } from 'next'
-import './globals.css'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -26,8 +29,11 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   const { lang } = await params
+  const locale = getDictionaryLocale(lang)
+  if (!locale) notFound()
+
   return (
-    <html lang={lang}>
+    <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
     </html>
   )
