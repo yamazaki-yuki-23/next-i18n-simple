@@ -14,11 +14,5 @@
     "increment": "カウントを増やす",
     "decrement": "カウントを減らす",
     "reset": "カウントをリセット"
-  },
-  "intlPage": {
-    "title": "next-intl デモページ",
-    "subtitle": "現在のロケール: {locale}",
-    "description": "このページは自作関数ではなく next-intl を使って表示しています。",
-    "backLink": "自作 i18n のページへ戻る"
   }
 }

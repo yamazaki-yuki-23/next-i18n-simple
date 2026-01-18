@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 
-import { getDictionary, getDictionaryLocale } from '@/lib/get-dictionary'
+import { getDictionaryLocale } from '@/lib/get-dictionary'
 
 import type { Metadata } from 'next'
 
@@ -23,14 +23,12 @@ export default async function IntlLayout({
   if (!locale) notFound()
 
   setRequestLocale(locale)
-  const [dictionaryMessages, extractedMessages] = await Promise.all([
-    getDictionary(locale),
-    import(`../../../extracted-messages/${locale}.json`).then((module) => module.default)
-  ])
-  const messages = { ...dictionaryMessages, ...extractedMessages }
+  const extractedMessages = await import(`../../../extracted-messages/${locale}.json`).then(
+    (module) => module.default
+  )
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={extractedMessages}>
       {children}
     </NextIntlClientProvider>
   )

@@ -14,11 +14,5 @@
     "increment": "Increment Count",
     "decrement": "Decrement Count",
     "reset": "Reset Count"
-  },
-  "intlPage": {
-    "title": "next-intl Demo Page",
-    "subtitle": "Current locale: {locale}",
-    "description": "This page uses next-intl instead of the custom dictionary helpers.",
-    "backLink": "Back to the custom i18n page"
   }
 }

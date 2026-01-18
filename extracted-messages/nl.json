@@ -1,8 +1,14 @@
 {
-  "uNYdCt": "",
-  "W291t7": "",
-  "A/mcIp": "",
-  "cUWR7J": "",
-  "S5c6DW": "",
-  "M9v79e": ""
+  "intlPage": {
+    "N4t+B5": "next-intl Demopagina",
+    "z1krvp": "Huidige locale: {locale}",
+    "pdfiie": "Deze pagina gebruikt next-intl in plaats van de aangepaste woordenboekhulpmiddelen.",
+    "YGpRxA": "Terug naar de aangepaste i18n-pagina"
+  },
+  "uNYdCt": "Hallo!",
+  "W291t7": "Hallo {name}!",
+  "A/mcIp": "Je hebt {count, plural, =0 {nog geen volgers} =1 {een volger} other {# volgers}}.",
+  "cUWR7J": "Het is je {year, selectordinal, one {#e} two {#e} few {#e} other {#e}} verjaardag!",
+  "S5c6DW": "{gender, select, female {Zij is} male {Hij is} other {Zij/hen is}} online.",
+  "M9v79e": "Raadpleeg de <link>richtlijnen</link>."
 }

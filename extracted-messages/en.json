@@ -1,4 +1,10 @@
 {
+  "intlPage": {
+    "N4t+B5": "next-intl Demo Page",
+    "z1krvp": "Current locale: {locale}",
+    "pdfiie": "This page uses next-intl instead of the custom dictionary helpers.",
+    "YGpRxA": "Back to the custom i18n page"
+  },
   "uNYdCt": "Hello!",
   "W291t7": "Hello {name}!",
   "A/mcIp": "You have {count, plural, =0 {no followers yet} =1 {one follower} other {# followers}}.",
