@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
 }
 
 const withNextIntl = createNextIntlPlugin({
-  requestConfig: './i18n.ts',
+  requestConfig: './i18n/request.ts',
   experimental: {
     srcPath: './app',
     messages: {
