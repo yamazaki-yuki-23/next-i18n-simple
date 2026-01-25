@@ -1,9 +1,10 @@
 'use client'
 
-import Link from 'next/link'
 import { useExtracted, useLocale } from 'next-intl'
 
 import SampleTranslation from '@/components/SampleTranslation'
+
+import { Link } from '@/i18n/navigation'
 
 export default function IntlHome() {
   const t = useExtracted('intlPage')
@@ -24,7 +25,7 @@ export default function IntlHome() {
         <SampleTranslation />
         <Link
           className="text-base font-semibold text-blue-600 underline decoration-2 underline-offset-4"
-          href={`/${locale}`}
+          href="/"
         >
           {t('自作 i18n のページへ戻る"')}
         </Link>

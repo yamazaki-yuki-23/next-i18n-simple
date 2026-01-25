@@ -3,16 +3,6 @@ import { NextIntlClientProvider } from 'next-intl'
 
 import SampleTranslation from '@/components/SampleTranslation'
 
-import type { ReactNode } from 'react'
-
-vi.mock('next/link', () => ({
-  default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
-    <a href={href} {...props}>
-      {children}
-    </a>
-  )
-}))
-
 describe('SampleTranslation コンポーネント', () => {
   const locale = 'ja'
 
@@ -38,6 +28,6 @@ describe('SampleTranslation コンポーネント', () => {
     expect(screen.getByText('彼女はオンラインです。')).toBeInTheDocument()
 
     const link = screen.getByRole('link', { name: 'ガイドライン' })
-    expect(link).toHaveAttribute('href', '/guidelines')
+    expect(link).toHaveAttribute('href', 'https://next-intl.dev/docs/getting-started')
   })
 })

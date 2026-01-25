@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation'
-import { NextIntlClientProvider } from 'next-intl'
+import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 
-import { getDictionaryLocale } from '@/lib/get-dictionary'
-
 import type { Metadata } from 'next'
+
+import { routing } from '@/i18n/routing'
 
 export const metadata: Metadata = {
   title: 'Next I18n Simple - next-intl',
@@ -19,16 +19,15 @@ export default async function IntlLayout({
   children: React.ReactNode
 }>) {
   const { lang } = await params
-  const locale = getDictionaryLocale(lang)
-  if (!locale) notFound()
+  if (!hasLocale(routing.locales, lang)) notFound()
 
-  setRequestLocale(locale)
-  const extractedMessages = await import(`../../../extracted-messages/${locale}.json`).then(
+  setRequestLocale(lang)
+  const extractedMessages = await import(`@/extracted-messages/${lang}.json`).then(
     (module) => module.default
   )
 
   return (
-    <NextIntlClientProvider locale={locale} messages={extractedMessages}>
+    <NextIntlClientProvider locale={lang} messages={extractedMessages}>
       {children}
     </NextIntlClientProvider>
   )

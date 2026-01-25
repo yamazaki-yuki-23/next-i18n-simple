@@ -23,7 +23,9 @@
       "@/components/*": ["./app/components/*"],
       "@/constants/*": ["./app/constants/*"],
       "@/dictionaries/*": ["./dictionaries/*"],
-      "@/lib/*": ["./app/lib/*"]
+      "@/lib/*": ["./app/lib/*"],
+      "@/i18n/*": ["./i18n/*"],
+      "@/extracted-messages/*": ["./extracted-messages/*"]
     },
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },

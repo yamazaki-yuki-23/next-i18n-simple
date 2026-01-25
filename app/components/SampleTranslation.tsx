@@ -1,5 +1,6 @@
-import Link from 'next/link'
 import { useExtracted } from 'next-intl'
+
+import { Link } from '@/i18n/navigation'
 
 const SampleTranslation = () => {
   const t = useExtracted()
@@ -63,7 +64,7 @@ const SampleTranslation = () => {
               link: (chunks) => (
                 <Link
                   className="font-semibold text-sky-700 underline decoration-2 underline-offset-4 transition hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300"
-                  href="/guidelines"
+                  href="https://next-intl.dev/docs/getting-started"
                 >
                   {chunks}
                 </Link>
