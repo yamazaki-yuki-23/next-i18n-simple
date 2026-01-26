@@ -34,3 +34,8 @@ yarn knip
 ## Notes
 
 - The CI workflow runs eslint, tsc, tests, and knip on push.
+
+## Localization management (Crowdin)
+
+- `extracted-messages/ja.json` をソースとして Crowdin と同期する設定は `crowdin.yml` を参照。
+- 必要な環境変数: `CROWDIN_PROJECT_ID`, `CROWDIN_PERSONAL_TOKEN`
