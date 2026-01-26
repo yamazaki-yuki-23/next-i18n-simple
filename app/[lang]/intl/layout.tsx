@@ -2,9 +2,9 @@ import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 
-import type { Metadata } from 'next'
-
 import { routing } from '@/i18n/routing'
+
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Next I18n Simple - next-intl',

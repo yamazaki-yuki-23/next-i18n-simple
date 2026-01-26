@@ -3,7 +3,6 @@
 import { useExtracted, useLocale } from 'next-intl'
 
 import SampleTranslation from '@/components/SampleTranslation'
-
 import { Link } from '@/i18n/navigation'
 
 export default function IntlHome() {
