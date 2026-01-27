@@ -1,14 +1,14 @@
 {
   "intlPage": {
-    "N4t+B5": "next-intl Demo Page",
-    "z1krvp": "Current locale: {locale}",
-    "pdfiie": "This page uses next-intl instead of the custom dictionary helpers.",
-    "YGpRxA": "Back to the custom i18n page"
+    "N4t+B5": "next-intl デモページ",
+    "z1krvp": "現在のロケール: {locale}",
+    "pdfiie": "このページは自作関数ではなく next-intl を使って表示しています。",
+    "YGpRxA": "自作 i18n のページへ戻る\""
   },
-  "greeting": "Hello!",
-  "greeting-with-name": "Hello, {name}!",
-  "followers-count": "You have {count, plural, =0 {no followers yet} =1 {one follower} other {# followers}}.",
-  "birthday-ordinal": "It's your {year, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} birthday!",
-  "status-online-gender": "{gender, select, female {She is} male {He is} other {They are}} online.",
-  "guidelines-link": "Please refer to the <link>guidelines</link>."
+  "greeting": "こんにちは！",
+  "greeting-with-name": "こんにちは、{name}さん！",
+  "followers-count": "{count, plural, =0 {フォロワーはまだいません} =1 {フォロワーが1人います} other {フォロワーが#人います}}。",
+  "birthday-ordinal": "{year, selectordinal, one {#回目} two {#回目} few {#回目} other {#回目}}のお誕生日です！",
+  "status-online-gender": "{gender, select, female {彼女は} male {彼は} other {その人は}}オンラインです。",
+  "guidelines-link": "<link>ガイドライン</link>をご確認ください。"
 }
