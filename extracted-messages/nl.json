@@ -1,14 +1,14 @@
 {
   "intlPage": {
-    "N4t+B5": "next-intl Demopagina",
-    "z1krvp": "Huidige locale: {locale}",
-    "pdfiie": "Deze pagina gebruikt next-intl in plaats van de aangepaste woordenboekhulpmiddelen.",
-    "YGpRxA": "Terug naar de aangepaste i18n-pagina"
+    "N4t+B5": "next-intl デモページ",
+    "z1krvp": "現在のロケール: {locale}",
+    "pdfiie": "このページは自作関数ではなく next-intl を使って表示しています。",
+    "YGpRxA": "自作 i18n のページへ戻る\""
   },
-  "greeting": "Hallo!",
-  "greeting-with-name": "Hallo, {name}!",
-  "followers-count": "Je hebt {count, plural, =0 {nog geen volgers} =1 {een volger} other {# volgers}}.",
-  "birthday-ordinal": "Het is je {year, selectordinal, one {#e} two {#e} few {#e} other {#e}} verjaardag!",
-  "status-online-gender": "{gender, select, female {Zij is} male {Hij is} other {Zij/hen is}} online.",
-  "guidelines-link": "Raadpleeg de <link>richtlijnen</link>."
+  "greeting": "こんにちは！",
+  "greeting-with-name": "こんにちは、{name}さん！",
+  "followers-count": "{count, plural, =0 {フォロワーはまだいません} =1 {フォロワーが1人います} other {フォロワーが#人います}}。",
+  "birthday-ordinal": "{year, selectordinal, one {#回目} two {#回目} few {#回目} other {#回目}}のお誕生日です！",
+  "status-online-gender": "{gender, select, female {彼女は} male {彼は} other {その人は}}オンラインです。",
+  "guidelines-link": "<link>ガイドライン</link>をご確認ください。"
 }
